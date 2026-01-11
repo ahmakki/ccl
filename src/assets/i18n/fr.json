@@ -1,0 +1,45 @@
+{
+  "index": {
+    "title": "Collecte CCL-Laval"
+  },
+  "app": {
+    "footer": "CCL-Laval © Tous droits rAcservAcs Ac 2026"
+  },
+  "donatePage": {
+    "logoAlt": "Logo CCL-Laval",
+    "eyebrow": "Collecte de fonds communautaire",
+    "title": "CCL-Laval",
+    "lead": "Merci de soutenir la collecte de fonds de CCL-Laval, un organisme communautaire engagAc.",
+    "instructions": "Veuillez indiquer vos coordonnAces et le montant de votre contribution.",
+    "honeypotLabel": "Ne pas remplir :",
+    "fullnameLabel": "Nom complet",
+    "fullnamePlaceholder": "Ex. Ahmad Khalil",
+    "cellphoneLabel": "TAclAcphone",
+    "cellphonePlaceholder": "+1 514 555 1234",
+    "cellphoneHelp": "Exemple : +1 514 555 1234",
+    "amountLabel": "Montant (CAD)",
+    "amountPlaceholder": "Montant personnalise",
+    "amountSuffix": "$",
+    "notificationLine1": "Une notification sera envoyAce Aÿ lƒ?TAcquipe de CCL-Laval.",
+    "notificationLine2": "Vos informations demeurent strictement confidentielles et sont accessibles uniquement Aÿ lƒ?TAcquipe organisatrice.",
+    "submitSending": "Envoi en cours...",
+    "submitIdle": "Envoyer ma contribution"
+  },
+  "progressPage": {
+    "logoAlt": "Logo CCL-Laval",
+    "eyebrow": "Suivi de la collecte",
+    "title": "CCL-Laval",
+    "lead": "Consultez l'avancement de la collecte en temps reel.",
+    "summary": "Total des donateurs et des contributions.",
+    "loading": "Chargement...",
+    "donorsLabel": "Donateurs",
+    "totalAmountLabel": "Montant total",
+    "amountSuffix": "$",
+    "refresh": "Actualiser"
+  },
+  "thankYouPage": {
+    "title": "Merci !",
+    "message": "Votre don a ActAc soumis avec succA\"s.",
+    "cta": "Faire un autre don"
+  }
+}

@@ -1,0 +1,113 @@
+<div class="donate-shell">
+  <section class="card form-card">
+    <div class="brand-lockup">
+      <img
+        class="brand-logo"
+        src="/assets/ccl-laval-logo.png"
+        [attr.alt]="'donatePage.logoAlt' | i18n"
+      />
+      <div class="brand-text">
+        <p class="eyebrow">{{ 'donatePage.eyebrow' | i18n }}</p>
+        <h1>{{ 'donatePage.title' | i18n }}</h1>
+        <p class="lead">
+          {{ 'donatePage.lead' | i18n }}
+        </p>
+      </div>
+    </div>
+    <p class="small">
+      {{ 'donatePage.instructions' | i18n }}
+    </p>
+
+    <form
+      name="donation"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      (ngSubmit)="submit(f)"
+      #f="ngForm"
+      novalidate
+    >
+      <input type="hidden" name="form-name" value="donation" />
+
+      <p class="hidden-field">
+        <label>{{ 'donatePage.honeypotLabel' | i18n }} <input name="bot-field" /></label>
+      </p>
+
+      <div class="field">
+        <label for="fullname">{{ 'donatePage.fullnameLabel' | i18n }}</label>
+        <input
+          id="fullname"
+          name="fullname"
+          [(ngModel)]="model.fullname"
+          required
+          minlength="2"
+          autocomplete="name"
+          [attr.placeholder]="'donatePage.fullnamePlaceholder' | i18n"
+        />
+      </div>
+
+      <div class="field">
+        <label for="cellphone">{{ 'donatePage.cellphoneLabel' | i18n }}</label>
+        <input
+          id="cellphone"
+          name="cellphone"
+          type="tel"
+          inputmode="tel"
+          [(ngModel)]="model.cellphone"
+          (ngModelChange)="onPhoneChange($event)"
+          required
+          minlength="8"
+          maxlength="20"
+          pattern="\\+?[0-9\\s\\-()]{8,}"
+          autocomplete="tel"
+          [attr.placeholder]="'donatePage.cellphonePlaceholder' | i18n"
+        />
+        <div class="help">{{ 'donatePage.cellphoneHelp' | i18n }}</div>
+      </div>
+
+      <div class="field">
+        <label for="amount">{{ 'donatePage.amountLabel' | i18n }}</label>
+        <div class="amount-grid">
+          <button
+            class="btn-chip"
+            type="button"
+            *ngFor="let amount of presetAmounts"
+            [class.active]="model.amount === amount"
+            (click)="setAmount(amount)"
+          >
+            {{ amount }} {{ 'donatePage.amountSuffix' | i18n }}
+          </button>
+        </div>
+        <input
+          id="amount"
+          name="amount"
+          type="text"
+          inputmode="numeric"
+          pattern="\\d+"
+          [(ngModel)]="model.amount"
+          (ngModelChange)="onAmountChange($event)"
+          required
+          [attr.placeholder]="'donatePage.amountPlaceholder' | i18n"
+        />
+      </div>
+
+      <p class="lead">
+        {{ 'donatePage.notificationLine1' | i18n }}<br />
+        {{ 'donatePage.notificationLine2' | i18n }}
+      </p>
+      <div class="row form-actions">
+        <button class="btn-primary" type="submit" [disabled]="submitting || f.invalid">
+          {{
+            submitting
+              ? ('donatePage.submitSending' | i18n)
+              : ('donatePage.submitIdle' | i18n)
+          }}
+        </button>
+      </div>
+
+      <div *ngIf="error" class="error">
+        {{ error }}
+      </div>
+    </form>
+  </section>
+</div>

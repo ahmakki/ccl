@@ -1,0 +1,43 @@
+<div class="donate-shell">
+  <section class="card hero-card">
+    <div class="brand-lockup">
+      <img
+        class="brand-logo"
+        src="/assets/ccl-laval-logo.png"
+        [attr.alt]="'progressPage.logoAlt' | i18n"
+      />
+      <div class="brand-text">
+        <p class="eyebrow">{{ 'progressPage.eyebrow' | i18n }}</p>
+        <h1>{{ 'progressPage.title' | i18n }}</h1>
+        <p class="lead">{{ 'progressPage.lead' | i18n }}</p>
+      </div>
+    </div>
+
+    <p class="small">{{ 'progressPage.summary' | i18n }}</p>
+
+    <div *ngIf="loading" class="small">{{ 'progressPage.loading' | i18n }}</div>
+
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+
+    <div *ngIf="!loading && !error" class="kpis">
+      <div class="kpi">
+        <div class="label">{{ 'progressPage.donorsLabel' | i18n }}</div>
+        <div class="value">{{ stats.count }}</div>
+      </div>
+      <div class="kpi">
+        <div class="label">{{ 'progressPage.totalAmountLabel' | i18n }}</div>
+        <div class="value" [class.bump]="totalBump">
+          {{ stats.total | number:'1.0-0' }} {{ 'progressPage.amountSuffix' | i18n }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row form-actions">
+      <button class="btn-ghost" type="button" (click)="reload()" [disabled]="loading || updating">
+        {{ 'progressPage.refresh' | i18n }}
+      </button>
+    </div>
+  </section>
+</div>
